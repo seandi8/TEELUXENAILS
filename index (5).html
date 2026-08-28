@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teeluxe Nails — Freetown, Sierra Leone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Parisienne&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3EE;
+    --cream-deep:#F4E6DC;
+    --blush:#F0C7D3;
+    --rose:#C97B93;
+    --ink:#1B1512;
+    --ink-soft:#3A2E28;
+    --gold:#B8912F;
+    --gold-light:#E9CD86;
+    --nude:#D9A876;
+    --line: rgba(27,21,18,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  img{display:block; max-width:100%; height:auto;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Jost'; font-size:12px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold); font-weight:500;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif; font-weight:600; color:var(--ink); line-height:1.08;}
+  .script{font-family:'Parisienne', cursive; font-weight:400; line-height:1;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 30px; border-radius:2px; font-family:'Jost'; font-size:13px;
+    letter-spacing:0.14em; text-transform:uppercase; font-weight:500;
+    border:1px solid var(--ink); cursor:pointer; transition:all .3s ease;
+  }
+  .btn-solid{ background:var(--ink); color:var(--cream); }
+  .btn-solid:hover{ background:var(--rose); border-color:var(--rose); color:var(--ink); }
+  .btn-ghost{ background:transparent; color:var(--ink); }
+  .btn-ghost:hover{ background:var(--ink); color:var(--cream); }
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(251,243,238,0.88); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .logo-mark{ display:flex; flex-direction:column; line-height:1; }
+  .logo-mark .top{ font-family:'Playfair Display'; font-size:20px; letter-spacing:0.18em; font-weight:700; }
+  .logo-mark .bottom{ font-family:'Parisienne'; font-size:19px; color:var(--rose); margin-top:-3px; }
+  .nav-links{ display:flex; gap:36px; font-size:13px; letter-spacing:0.06em; }
+  .nav-links a{ position:relative; padding-bottom:4px; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold);
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:22px; }
+  .nav-cta .btn{ padding:11px 22px; font-size:11px; }
+  .burger{ display:none; }
+
+  @media (max-width:860px){
+    .nav-links{ display:none; }
+    .nav-cta .btn span.long{ display:none; }
+  }
+
+  /* HERO */
+  .hero{ position:relative; padding:150px 0 90px; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px; align-items:center; }
+  .hero-copy .eyebrow{ margin-bottom:18px; display:block; }
+  .hero h1{ font-size:clamp(38px, 5.2vw, 66px); margin-bottom:6px; }
+  .hero h1 .script{ font-size:1.28em; color:var(--rose); display:block; }
+  .hero p.lede{
+    margin-top:22px; max-width:440px; font-size:16px; line-height:1.75; color:var(--ink-soft);
+  }
+  .hero-actions{ margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-stats{ display:flex; gap:38px; margin-top:52px; }
+  .hero-stats div{ font-family:'Playfair Display'; font-size:26px; color:var(--ink); }
+  .hero-stats span{ display:block; font-family:'Jost'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-top:4px; }
+
+  .hero-photo{ position:relative; }
+  .hero-photo .frame{
+    position:relative; border-radius:4px; overflow:hidden;
+    box-shadow: 0 30px 60px -20px rgba(27,21,18,0.35);
+  }
+  .hero-photo .frame img{ width:100%; height:560px; object-fit:cover; }
+  .hero-photo .tag{
+    position:absolute; bottom:-26px; left:-26px; background:var(--ink); color:var(--cream);
+    padding:20px 26px; max-width:200px; font-family:'Playfair Display'; font-size:14px; line-height:1.4;
+    box-shadow:0 18px 30px -12px rgba(0,0,0,0.4);
+  }
+  .hero-photo .tag em{ font-family:'Parisienne'; font-style:normal; color:var(--gold-light); font-size:1.3em; display:block; }
+
+  @media (max-width:920px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-photo{ order:-1; }
+    .hero-photo .frame img{ height:340px; }
+    .hero-photo .tag{ display:none; }
+  }
+
+  /* SECTION HEADERS */
+  .section{ padding:96px 0; }
+  .section-head{ text-align:center; max-width:620px; margin:0 auto 56px; }
+  .section-head .eyebrow{ display:block; margin-bottom:14px; }
+  .section-head h2{ font-size:clamp(28px,4vw,42px); }
+  .section-head p{ margin-top:16px; color:var(--ink-soft); font-size:15px; line-height:1.7; }
+  .divider{
+    width:1px; height:46px; background:linear-gradient(var(--gold), transparent);
+    margin:0 auto 20px;
+  }
+
+  /* SERVICES */
+  .services{ background:var(--ink); color:var(--cream); }
+  .services .section-head h2, .services .section-head p{ color:var(--cream); }
+  .services .section-head p{ color:rgba(251,243,238,0.7); }
+  .svc-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(251,243,238,0.14); }
+  .svc-card{
+    background:var(--ink); padding:40px 24px; text-align:center;
+    transition:background .35s ease;
+  }
+  .svc-card:hover{ background:#2A211C; }
+  .svc-num{ font-family:'Playfair Display'; font-style:italic; color:var(--gold-light); font-size:13px; margin-bottom:20px; opacity:0.8; }
+  .svc-card h3{ color:var(--cream); font-size:17px; margin-bottom:10px; }
+  .svc-card p{ font-size:13px; color:rgba(251,243,238,0.62); line-height:1.6; }
+  @media (max-width:920px){ .svc-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .svc-grid{ grid-template-columns:1fr; } }
+
+  /* GALLERY */
+  .gallery-grid{
+    columns:4 240px; column-gap:14px;
+  }
+  .gallery-grid figure{
+    break-inside:avoid; margin-bottom:14px; border-radius:3px; overflow:hidden; position:relative;
+  }
+  .gallery-grid img{ width:100%; display:block; transition:transform .6s ease; }
+  .gallery-grid figure:hover img{ transform:scale(1.045); }
+  .gallery-grid figcaption{
+    position:absolute; inset:auto 0 0 0; padding:16px 14px;
+    background:linear-gradient(to top, rgba(27,21,18,0.78), transparent);
+    color:var(--cream); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    opacity:0; transform:translateY(6px); transition:all .35s ease;
+  }
+  .gallery-grid figure:hover figcaption{ opacity:1; transform:translateY(0); }
+
+  /* BOOKING */
+  .booking{ background:var(--cream-deep); }
+  .booking-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .booking-copy .eyebrow{ margin-bottom:14px; display:block; }
+  .booking-copy h2{ font-size:clamp(26px,3.6vw,38px); margin-bottom:18px; }
+  .booking-copy p{ color:var(--ink-soft); line-height:1.75; margin-bottom:26px; }
+  .policy-card{
+    background:var(--ink); color:var(--cream); border-radius:4px; padding:38px;
+    box-shadow:0 30px 60px -24px rgba(27,21,18,0.4);
+  }
+  .policy-row{ display:flex; gap:18px; padding:18px 0; border-bottom:1px solid rgba(251,243,238,0.14); }
+  .policy-row:last-child{ border-bottom:none; }
+  .policy-row .ic{
+    width:38px; height:38px; border:1px solid var(--gold); border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center; color:var(--gold-light); font-family:'Playfair Display'; font-size:15px;
+  }
+  .policy-row h4{ font-family:'Jost'; font-weight:500; font-size:14px; letter-spacing:0.03em; margin-bottom:4px; text-transform:uppercase; color:var(--gold-light); }
+  .policy-row p{ font-size:13.5px; color:rgba(251,243,238,0.75); line-height:1.6; }
+  .deposit-amt{ font-family:'Playfair Display'; font-size:22px; color:var(--cream); }
+  @media (max-width:900px){ .booking-wrap{ grid-template-columns:1fr; } }
+
+  /* LOYALTY - signature element */
+  .loyalty{ text-align:center; }
+  .stamp-card{
+    max-width:640px; margin:0 auto; border:1px solid var(--line); border-radius:6px;
+    padding:48px 40px; background:var(--cream); position:relative;
+  }
+  .stamp-card .crown{ font-family:'Playfair Display'; font-style:italic; color:var(--gold); font-size:14px; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:8px; }
+  .stamp-card h3{ font-size:26px; margin-bottom:6px; }
+  .stamp-card .sub{ color:var(--ink-soft); font-size:14px; margin-bottom:34px; }
+  .stamps{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:30px; }
+  .stamp{
+    width:52px; height:52px; border-radius:50%; border:1.5px dashed var(--rose);
+    display:flex; align-items:center; justify-content:center; font-family:'Playfair Display'; color:var(--rose);
+    font-size:15px; cursor:pointer; user-select:none; transition:all .35s cubic-bezier(.2,.8,.3,1); background:transparent;
+  }
+  .stamp.filled{
+    border-style:solid; border-color:var(--gold); background:var(--gold);
+    color:var(--ink); transform:scale(1.06);
+    box-shadow:0 8px 18px -8px rgba(184,145,47,0.7);
+  }
+  .stamp.reward{ border-color:var(--rose); }
+  .stamp.reward.filled{ background:var(--rose); border-color:var(--rose); color:var(--cream); }
+  .stamp-progress{ font-size:13px; color:var(--ink-soft); margin-bottom:6px; letter-spacing:0.02em; }
+  .stamp-hint{ font-size:11.5px; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; }
+  .loyalty-terms{
+    display:flex; justify-content:center; gap:28px; margin-top:38px; flex-wrap:wrap;
+    font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+  }
+  .loyalty-terms span{ display:flex; align-items:center; gap:8px; }
+  .loyalty-terms span::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); }
+
+  /* CONTACT / FOOTER */
+  .contact{ background:var(--ink); color:var(--cream); }
+  .contact-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; }
+  .contact h2{ color:var(--cream); font-size:clamp(26px,3.6vw,40px); margin-bottom:20px; }
+  .contact p{ color:rgba(251,243,238,0.68); line-height:1.75; margin-bottom:30px; max-width:440px; }
+  .contact-list{ display:flex; flex-direction:column; gap:22px; }
+  .contact-list .row{ display:flex; gap:16px; align-items:flex-start; }
+  .contact-list .ic{ color:var(--gold-light); font-family:'Playfair Display'; font-style:italic; font-size:14px; width:26px; }
+  .contact-list h4{ font-size:14px; letter-spacing:0.04em; text-transform:uppercase; color:var(--gold-light); margin-bottom:3px; font-weight:500; }
+  .contact-list p{ margin:0; font-size:14px; color:rgba(251,243,238,0.75); }
+  .contact-photo{ border-radius:4px; overflow:hidden; height:100%; min-height:340px; }
+  .contact-photo img{ width:100%; height:100%; object-fit:cover; }
+  @media (max-width:900px){ .contact-wrap{ grid-template-columns:1fr; } .contact-photo{ min-height:240px; } }
+
+  footer{ background:#120E0B; color:rgba(251,243,238,0.55); padding:30px 0; }
+  .foot-wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:12px; letter-spacing:0.04em; }
+  .foot-wrap .script{ color:var(--gold-light); font-size:18px; }
+
+  ::selection{ background:var(--gold-light); color:var(--ink); }
+  a:focus-visible, button:focus-visible, .stamp:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo-mark">
+      <span class="top">TEELUXE</span>
+      <span class="bottom">Nails</span>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#booking">Booking</a>
+      <a href="#loyalty">Loyalty</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-solid" href="https://wa.me/23274245944" target="_blank" rel="noopener"><span class="long">WhatsApp</span> · 074245944</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Freetown, Sierra Leone</span>
+      <h1>Beautiful nails.<span class="script">Confidence, you.</span></h1>
+      <p class="lede">At Teeluxe Nails, every set is built by hand — acrylic full sets, gel designs and 3D art, finished with the kind of precision you can feel before you even see it. Based at Brookfields International.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="https://wa.me/23274245944" target="_blank" rel="noopener">Book Your Set</a>
+        <a class="btn btn-ghost" href="#gallery">View Gallery</a>
+      </div>
+      <div class="hero-stats">
+        <div>10<span>Stamps to a Reward</span></div>
+        <div>30%<span>Off on Your 10th Set</span></div>
+        <div>5<span>Signature Services</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="images/600557.jpg" alt="Stiletto nails with hand-painted white florals" loading="eager">
+      </div>
+      <div class="tag"><em>Nails that</em>speak your style.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="divider"></div>
+      <span class="eyebrow">What we do</span>
+      <h2>Our Services</h2>
+      <p>From everyday elegance to full 3D embellishment — every service is priced and paced for your appointment, not rushed for the next one.</p>
+    </div>
+  </div>
+  <div class="svc-grid wrap" style="max-width:1180px;">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <h3>Acrylic Full Sets</h3>
+      <p>Sculpted length and shape, built to last, finished to your preferred style.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <h3>Gel Polish &amp; Designs</h3>
+      <p>Long-wearing colour with clean, precise line work.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <h3>3D Art &amp; Embellishments</h3>
+      <p>Hand-sculpted florals, bows and charms — your set, one of one.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <h3>Manicure &amp; Pedicure</h3>
+      <p>Proper hand and foot care before any polish goes on.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <h3>Appointments Available</h3>
+      <p>Book ahead by WhatsApp so your chair is ready when you arrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="divider"></div>
+      <span class="eyebrow">Recent work</span>
+      <h2>Gallery</h2>
+      <p>A look at sets fresh off the table — swipe through for shape, colour and detail inspiration.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure><img src="images/600559.jpg" alt="Pink marble coffin nails with 3D floral accent" loading="lazy"><figcaption>Pink Marble &amp; Floral</figcaption></figure>
+      <figure><img src="images/600555.jpg" alt="White and pink stiletto nails with bow" loading="lazy"><figcaption>Stiletto &amp; Bow</figcaption></figure>
+      <figure><img src="images/600554.jpg" alt="Black French tip nails with bow charms" loading="lazy"><figcaption>Black French &amp; Bows</figcaption></figure>
+      <figure><img src="images/600556.jpg" alt="Stiletto nails with polka dots and florals" loading="lazy"><figcaption>Polka Dot Stiletto</figcaption></figure>
+      <figure><img src="images/600562.jpg" alt="Chrome edge French tip nails" loading="lazy"><figcaption>Chrome Edge French</figcaption></figure>
+      <figure><img src="images/600563.jpg" alt="Burgundy and gold French tip nails" loading="lazy"><figcaption>Burgundy &amp; Gold</figcaption></figure>
+      <figure><img src="images/600558.jpg" alt="Black and white polka dot French tips" loading="lazy"><figcaption>Polka Dot French</figcaption></figure>
+      <figure><img src="images/600561.jpg" alt="Nude nails with white 3D flowers and gold beads" loading="lazy"><figcaption>3D Florals &amp; Gold</figcaption></figure>
+      <figure><img src="images/600553.jpg" alt="Soft pink French tips with floral line art" loading="lazy"><figcaption>Soft Pink French</figcaption></figure>
+      <figure><img src="images/600560.jpg" alt="White French tip nails with floral accent" loading="lazy"><figcaption>Classic White French</figcaption></figure>
+      <figure><img src="images/600564.jpg" alt="Black French tips with bows and pearls" loading="lazy"><figcaption>Black &amp; Pearl</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section booking" id="booking">
+  <div class="wrap booking-wrap">
+    <div class="booking-copy">
+      <span class="eyebrow">Good to know</span>
+      <h2>Booking Policy</h2>
+      <p>A quick read before you book — it keeps appointments running smoothly for you and for every client after you.</p>
+      <a class="btn btn-solid" href="https://wa.me/23274245944" target="_blank" rel="noopener">Send Deposit &amp; Book</a>
+    </div>
+    <div class="policy-card">
+      <div class="policy-row">
+        <div class="ic">Le</div>
+        <div>
+          <h4>Deposit to Confirm</h4>
+          <p class="deposit-amt">Le50 deposit</p>
+          <p>Sent by Mobile Money to <strong>074245944</strong>. This amount is deducted from the final price of your service.</p>
+        </div>
+      </div>
+      <div class="policy-row">
+        <div class="ic">⏱</div>
+        <div>
+          <h4>Late Arrivals</h4>
+          <p>Arriving more than 1 hour past your slot may result in the appointment being cancelled.</p>
+        </div>
+      </div>
+      <div class="policy-row">
+        <div class="ic">✕</div>
+        <div>
+          <h4>Failure to Show</h4>
+          <p>A no-show is treated as a cancelled appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section loyalty" id="loyalty">
+  <div class="wrap">
+    <div class="stamp-card">
+      <div class="crown">✦ Loyalty Card ✦</div>
+      <h3>Beautiful Nails, Rewarded.</h3>
+      <p class="sub">Earn a stamp with every visit. Tap the stamps below to see your reward unlock.</p>
+      <div class="stamps" id="stampRow">
+        <!-- 10 stamps generated -->
+      </div>
+      <p class="stamp-progress" id="stampProgress">0 of 10 stamps collected</p>
+      <p class="stamp-hint">Reward: 30% off your next set</p>
+      <div class="loyalty-terms">
+        <span>One stamp per visit</span>
+        <span>Non-transferable</span>
+        <span>No expiry</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-wrap" style="padding:96px 28px;">
+    <div>
+      <span class="eyebrow" style="color:var(--gold-light);">Visit or book</span>
+      <h2>Let's Get You Booked</h2>
+      <p>Message us on WhatsApp or TikTok to check availability — appointments fill up fastest on weekends.</p>
+      <div class="contact-list">
+        <div class="row">
+          <div class="ic">☎</div>
+          <div><h4>Call / WhatsApp</h4><p><a href="https://wa.me/23274245944" target="_blank" rel="noopener">074 245 944</a></p></div>
+        </div>
+        <div class="row">
+          <div class="ic">♪</div>
+          <div><h4>TikTok</h4><p><a href="https://www.tiktok.com/@Teeluxenails" target="_blank" rel="noopener">@Teeluxenails</a></p></div>
+        </div>
+        <div class="row">
+          <div class="ic">◈</div>
+          <div><h4>Location</h4><p>Brookfields International, Freetown, Sierra Leone</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-photo">
+      <img src="images/600561.jpg" alt="3D floral nail art with gold beading" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-wrap">
+    <span><span class="script">Teeluxe</span> Nails — Brookfields International, Freetown</span>
+    <span>074245944 · @Teeluxenails</span>
+  </div>
+</footer>
+
+<script>
+  const total = 10, reward = 10;
+  const row = document.getElementById('stampRow');
+  const progress = document.getElementById('stampProgress');
+  let filled = 0;
+  for(let i=1;i<=total;i++){
+    const s = document.createElement('button');
+    s.className = 'stamp' + (i===reward ? ' reward' : '');
+    s.textContent = i===reward ? '30%' : i;
+    s.setAttribute('aria-label', 'Stamp ' + i);
+    s.addEventListener('click', () => {
+      filled = (filled === i) ? i-1 : i;
+      updateStamps();
+    });
+    row.appendChild(s);
+  }
+  function updateStamps(){
+    [...row.children].forEach((el, idx) => {
+      el.classList.toggle('filled', idx < filled);
+    });
+    progress.textContent = filled + ' of 10 stamps collected';
+  }
+</script>
+
+</body>
+</html>
